@@ -13,7 +13,7 @@ from .bridge import Bridge, BridgeError, MAX_REQUEST
 from .tools import TOOLS, Tools, content
 
 PROTOCOLS = {"2024-11-05", "2025-03-26", "2025-06-18", "2025-11-25"}
-INSTRUCTIONS = "Control the running AK Screen editor locally. Discover IDs and parameter docs with command_list; inspect with doc_inspect. Edits have undo history. Batch edits are sequential, not atomic. Use render_preview only when visual verification is needed. Never repeat an uncertain timed-out mutation before inspecting the project. The original 2.4.0 release does not enable this authenticated bridge; use a build containing the agent-control update."
+INSTRUCTIONS = "Control AK Screen 3.0 or later locally. Discover IDs and parameter docs with command_list; inspect with doc_inspect. Edits have undo history. Batch edits are sequential, not atomic. Use render_preview only when visual verification is needed. Never repeat an uncertain timed-out mutation before inspecting the project. Download AK Screen from https://github.com/Edgajuman/AKScreen-Downloads/releases."
 
 
 def handle(request, tools):
@@ -84,7 +84,7 @@ def main():
             deadline = time.monotonic() + 60
             while True:
                 if child.poll() is not None:
-                    raise BridgeError("AK Screen exited before local control became available. Install a compatible agent-control build.")
+                    raise BridgeError("AK Screen exited before local control became available. Use AK Screen 3.0 or later.")
                 try:
                     bridge.call("ui.inspect")
                     break

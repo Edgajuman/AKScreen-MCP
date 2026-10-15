@@ -4,10 +4,13 @@ Controla **AK Screen** desde Claude Desktop, Claude Code, Codex u otro cliente M
 compatible con stdio. El agente usa los comandos reales del editor: clips,
 efectos, texto, subtítulos, cámara, gráficos, fotogramas clave, audio y exportación.
 
-**Compatibilidad:** requiere una compilación de AK Screen que incluya el nuevo
-puente autenticado `--control`. El instalador 2.4.0 publicado el 12 de octubre de
-2026 todavía desactiva ese canal. Este repositorio prepara la integración para
-la actualización en desarrollo; no instala ni actualiza el editor por su cuenta.
+**Compatible con AK Screen 3.0 y versiones posteriores.**
+
+[**Descargar AK Screen**](https://github.com/Edgajuman/AKScreen-Downloads/releases)
+· [Repositorio de descargas](https://github.com/Edgajuman/AKScreen-Downloads)
+· [Skill complementaria](https://github.com/Edgajuman/AKScreen-Skill)
+
+Instala AK Screen 3.0 o posterior y conecta el MCP al ejecutable de esa versión.
 
 ## Instalación
 
@@ -43,7 +46,7 @@ El editor no se cierra al desconectar al agente: tu trabajo sin guardar se conse
 Para otra instancia usa `--port 9877` en la configuración de ese servidor.
 
 Si prefieres iniciar el editor tú mismo, define `AKSCREEN_CONTROL_TOKEN` (32–256
-caracteres ASCII) para **ambos procesos**, ejecuta `AKScreen.exe --control 9876`, y
+caracteres ASCII imprimibles sin espacios) para **ambos procesos**, ejecuta `AKScreen.exe --control 9876`, y
 después `ak-screen-mcp --port 9876`. No publiques esa clave ni la compartas con
 servicios externos. La conexión se limita a `127.0.0.1`.
 
@@ -87,9 +90,8 @@ python -m pip install -e .
 python -m unittest discover -s tests
 ```
 
-Las pruebas verifican protocolo stdio, autenticación local, límites, lotes y
-errores frente a un editor de prueba. No certifican una compilación del editor:
-la validación visual con el ejecutable compatible se realiza por separado.
+Las pruebas verifican protocolo stdio, autenticación local, límites, lotes,
+desconexiones y recuperación de errores frente a un editor de prueba.
 
 MIT · @edgajuman. El canal de comandos proviene de la arquitectura abierta de
 [FilmCraft](https://github.com/storytold/filmcraft); el puente, la autenticación

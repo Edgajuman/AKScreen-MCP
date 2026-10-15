@@ -39,7 +39,7 @@ class Bridge:
                 raise BridgeError("Incomplete or oversized editor response. The command may have completed: inspect the project before retrying.")
             result = json.loads(data)
         except (OSError, ValueError, RecursionError) as error:
-            suffix = " The command may have completed: inspect the project before retrying." if sent else " Start a compatible AK Screen build with local control enabled."
+            suffix = " The command may have completed: inspect the project before retrying." if sent else " Start AK Screen 3.0 or later with local control enabled."
             raise BridgeError("Cannot communicate with AK Screen." + suffix) from error
         if not isinstance(result, dict) or result.get("id") != self._next_id:
             raise BridgeError("The editor returned an unexpected response ID")
