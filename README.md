@@ -62,6 +62,15 @@ Ejemplos de peticiones:
 - «Crea un rótulo con mi fuente local y anima su entrada durante un segundo».
 - «Aplica un movimiento de cámara y añade un gráfico de barras con estos datos».
 - «Recorta las pausas que te indiqué y exporta una copia MP4 a esta carpeta».
+- «Sigue este objeto y vincula el título a su recorrido».
+- «Crea un espectro circular editable con este clip de música».
+- «Genera partículas con gravedad y haz que la cámara siga el título».
+
+En AK Screen 3.0 el mismo registro incluye `tracking.*`, `audio.reactive`,
+`audio.spectrum`, `physics.emitter`, `camera.target` y `motion.blur`. El agente
+descubre sus parámetros en el editor instalado. Los análisis son trabajos
+cancelables: consulta `jobs.list` y espera su resultado antes de editar la
+secuencia. Las capas y claves generadas se guardan en el proyecto.
 
 ## Herramientas
 
